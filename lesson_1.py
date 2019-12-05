@@ -28,9 +28,10 @@ costs = int(input("input costs "))
 
 if profit > costs:
     print("you have a profit")
-    efficiency = (costs / profit) * 100
+    efficiency = ((profit - costs) / costs) * 100
+    print("efficiency = %.2f%%" % efficiency)
     staff = int(input("input quantity of staff "))
-    efficiency = efficiency / staff
-    print("profit per employee %.2f" % efficiency)
+    earnings = (profit - costs) / staff
+    print("profit per employee %.2f" % earnings)
 else:
     print("you have a damages")

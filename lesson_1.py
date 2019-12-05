@@ -15,11 +15,11 @@ print(f'{int(n) + int(n + n) + int(n + n + n)}')
 # 4
 a = input("input number ")
 max = 0
-l = len(a)
-while l > 0:
-    max = int(a[l])
-    l -= 1
-
+i = len(a)-1
+while i >= 0:
+    if int(a[i]) > max:
+        max = int(a[i])
+    i = i-1
 print(max)
 
 # 5

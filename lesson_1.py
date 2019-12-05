@@ -35,3 +35,15 @@ if profit > costs:
     print("profit per employee %.2f" % earnings)
 else:
     print("you have a damages")
+
+# 6
+a = int(input("input km per day "))
+b = int(input("input required per day "))
+end_day = 1
+if a > b:
+    print("you have reached the aim")
+else:
+    while a <= b:
+        end_day += 1
+        a += (a / 100) * 10
+    print("you'll have reached the aim for %s days" % end_day)

@@ -14,14 +14,23 @@ print(f'{int(n) + int(n + n) + int(n + n + n)}')
 
 # 4
 a = input("input number ")
-max = 0
-i = len(a)-1
+m = 0
+i = len(a) - 1
 while i >= 0:
-    if int(a[i]) > max:
-        max = int(a[i])
-    i = i-1
-print(max)
+    if int(a[i]) > m:
+        m = int(a[i])
+    i = i - 1
+print(m)
 
 # 5
-profit = input("input profit ")
-costs = input("input costs ")
+profit = int(input("input profit "))
+costs = int(input("input costs "))
+
+if profit > costs:
+    print("you have a profit")
+    efficiency = (costs / profit) * 100
+    staff = int(input("input quantity of staff "))
+    efficiency = efficiency / staff
+    print("profit per employee %.2f" % efficiency)
+else:
+    print("you have a damages")

@@ -29,7 +29,15 @@ if 0 < month_num < 13:
 
 # 4
 string = input("input your string ").split(" ")
-count = 0
-for i in string:
-    count += 1
-    print(str(count), i[0:10], sep=" ")
+for i, val in enumerate(string, 1):
+    print(i, val)
+
+# 5
+rating = [9, 5, 5, 4, 2, 1, 1]
+num = int(input("input your number "))
+if rating.count(num) > 1:
+    rating.insert(rating.index(num), num)
+else:
+    rating.append(num)
+    rating.sort()
+print(rating)

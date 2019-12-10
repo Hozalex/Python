@@ -36,8 +36,9 @@ for i, val in enumerate(string, 1):
 rating = [9, 5, 5, 4, 2, 1, 1]
 num = int(input("input your number "))
 if rating.count(num) > 1:
-    rating.insert(rating.index(num), num)
+    rating.insert(rating.index(num) + rating.count(num), num)
 else:
     rating.append(num)
     rating.sort()
+    rating.reverse()
 print(rating)

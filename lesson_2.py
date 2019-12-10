@@ -4,9 +4,16 @@ for i in my_list:
     print(type(i))
 
 # 2
-my_list = input("input your list ")
-for i in range(0, len(my_list)):
-    print(list(my_list[i]))
+user_list = input("input your list ")
+end_list = []
+medium_list = ''
+count = 0
+print(list(user_list))
+for i in range(0, len(user_list), 2):
+    medium_list = list(user_list[i: i + 2])
+    medium_list.reverse()
+    end_list.extend(medium_list)
+print(end_list)
 
 # 3
 month_num = int(input("input month number "))
@@ -30,7 +37,7 @@ if 0 < month_num < 13:
 # 4
 string = input("input your string ").split(" ")
 for i, val in enumerate(string, 1):
-    print(i, val)
+    print(i, val[:10])
 
 # 5
 rating = [9, 5, 5, 4, 2, 1, 1]
@@ -39,6 +46,5 @@ if rating.count(num) > 1:
     rating.insert(rating.index(num) + rating.count(num), num)
 else:
     rating.append(num)
-    rating.sort()
-    rating.reverse()
+    rating.sort(reverse=True)
 print(rating)

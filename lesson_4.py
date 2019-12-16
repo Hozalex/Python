@@ -17,7 +17,7 @@ for x in my_list:
         new_list.append(x)
     i = x
 print(list(x for x in new_list))
-# неповторяющиеся значения в списке
+# для неповторяющихся значений в списке
 list2 = [2, 6, 7, 4, 9, 3, 5]
 print(list(x for x in list2[1:] if x > list2[list2.index(x) - 1]))
 

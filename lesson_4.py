@@ -2,7 +2,7 @@ from sys import argv
 from functools import reduce
 from math import factorial
 
-my_list = (2, 6, 6, 6, 8, 4, 1, 9, 1, 2, 4, 3, 2, 7, 8)
+my_list = [2, 6, 6, 6, 8, 4, 1, 9, 1, 2, 4, 3, 2, 7, 8]
 # 1
 scrypt_name, work_hours, hourly_rate, bonus, = argv
 print("1_________________________")
@@ -13,10 +13,13 @@ print("2_________________________")
 new_list = []
 i = my_list[0]
 for x in my_list:
-    if int(x) > i:
+    if x > i:
         new_list.append(x)
-    i = int(x)
+    i = x
 print(list(x for x in new_list))
+# неповторяющиеся значения в списке
+list2 = [2, 6, 7, 4, 9, 3, 5]
+print(list(x for x in list2[1:] if x > list2[list2.index(x) - 1]))
 
 # 3
 print("3_________________________")
@@ -35,10 +38,10 @@ print("7_________________________")
 
 
 def fibo_gen():
-    i = 0
-    for el in range(1, 16):
-        i = i * el
-        yield el
+    y = 1
+    for val in range(1, 16):
+        y *= val
+        yield y
 
 
 for el in fibo_gen():

@@ -1,0 +1,4 @@
+Ivanov 30
+Doe 10
+Petrov 40
+Sidorov 5

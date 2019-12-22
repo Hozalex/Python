@@ -163,3 +163,25 @@ print(f'is this car police? {police_car.is_police}')
 police_car.turn('right')
 police_car.show_speed()
 police_car.stop()
+
+# 5
+print("5 _______________________")
+
+
+class Stationery:
+    title = ''
+
+    def draw(self):
+        print("drawing start...")
+
+
+class Pen(Stationery):
+    pass
+
+
+class Pencil(Stationery):
+    pass
+
+
+class Handle(Stationery):
+    pass

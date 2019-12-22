@@ -55,14 +55,14 @@ class Worker:
 
 class Position(Worker):
     def __init__(self, name, surname, position, wage, bonus):
-        Worker.name = name
-        Worker.surname = surname
-        Worker.position = position
+        Position.name = name
+        Position.surname = surname
+        Position.position = position
         self._Worker__income['wage'] = wage
         self._Worker__income['bonus'] = bonus
 
     def get_full_name(self):
-        return f'Full Name = {Worker.name} {Worker.surname}'
+        return f'Full Name = {Position.name} {Position.surname}'
 
     def get_total_income(self):
         return f'Total income = {reduce(lambda x, y: x + y, (x for x in self._Worker__income.values()))}'
@@ -82,12 +82,6 @@ class Car:
     name = ''
     is_police = None
 
-    def __init__(self, name, color, speed, is_police=False):
-        Car.name = name
-        Car.color = color
-        Car.speed = speed
-        Car.is_police = is_police
-
     def go(self):
         print(f'{self.name} has go')
 
@@ -103,6 +97,12 @@ class Car:
 
 class TownCar(Car):
 
+    def __init__(self, name, color, speed, is_police):
+        TownCar.name = name
+        TownCar.color = color
+        TownCar.speed = speed
+        TownCar.is_police = is_police
+
     def show_speed(self):
         if self.speed > 60:
             print('your speed is over limit 60')
@@ -111,32 +111,47 @@ class TownCar(Car):
 
 
 class WorkCar(Car):
+    def __init__(self, name, color, speed, is_police):
+        WorkCar.name = name
+        WorkCar.color = color
+        WorkCar.speed = speed
+        WorkCar.is_police = is_police
 
-    def show_speed(self):
-        if self.speed > 40:
-            print('your speed is over limit 40')
-        else:
-            Car.show_speed(self)
+
+def show_speed(self):
+    if self.speed > 40:
+        print('your speed is over limit 40')
+    else:
+        Car.show_speed(self)
 
 
 class SportCar(Car):
-    pass
+    def __init__(self, name, color, speed, is_police):
+        SportCar.name = name
+        SportCar.color = color
+        SportCar.speed = speed
+        SportCar.is_police = is_police
 
 
 class PoliceCar(Car):
-    Car.is_police = True
+
+    def __init__(self, name, color, speed, is_police):
+        PoliceCar.name = name
+        PoliceCar.color = color
+        PoliceCar.speed = speed
+        PoliceCar.is_police = is_police
 
 
-work_car = WorkCar('work_lada', 'white', 50)
+work_car = WorkCar('work_lada', 'white', 50, False)
 work_car.go()
 work_car.show_speed()
 
-town_car = WorkCar('town_lada', 'green', 30)
+town_car = TownCar('town_lada', 'green', 30, False)
 town_car.go()
 town_car.show_speed()
 town_car.stop()
 
-sport_car = SportCar('sport_lada', 'red', 80)
+sport_car = SportCar('sport_lada', 'red', 80, False)
 sport_car.go()
 print(f'is this car police? {sport_car.is_police}')
 sport_car.turn("left")

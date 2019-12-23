@@ -5,23 +5,24 @@ from functools import reduce
 # 1
 class TrafficLight:
     __color = None
+    count = 0
 
     def running(self):
-        while True:
-            self.__color = 'Red'
+        while TrafficLight.count < 3:
+            TrafficLight.__color = 'Red'
             print(TrafficLight.__color)
             time.sleep(7)
-            self.__color = 'Yellow'
+            TrafficLight.__color = 'Yellow'
             print(TrafficLight.__color)
             time.sleep(2)
-            self.__color = 'Green'
+            TrafficLight.__color = 'Green'
             print(TrafficLight.__color)
             time.sleep(5)
+            TrafficLight.count += 1
 
 
-# light = TrafficLight()
-# light.running()
-
+light = TrafficLight()
+light.running()
 
 # 2
 print("2 _______________________")

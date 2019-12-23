@@ -8,13 +8,13 @@ class TrafficLight:
 
     def running(self):
         while True:
-            TrafficLight.__color = 'Red'
+            self.__color = 'Red'
             print(TrafficLight.__color)
             time.sleep(7)
-            TrafficLight.__color = 'Yellow'
+            self.__color = 'Yellow'
             print(TrafficLight.__color)
             time.sleep(2)
-            TrafficLight.__color = 'Green'
+            self.__color = 'Green'
             print(TrafficLight.__color)
             time.sleep(5)
 
@@ -32,11 +32,11 @@ class Road:
     __width = 0
 
     def __init__(self, length, width):
-        Road.__length = length
-        Road.__width = width
+        self.__length = length
+        self.__width = width
 
     def weight(self):
-        return (Road.__length * Road.__width * 25 * 5) // 1000
+        return (self.__length * self.__width * 25 * 5) // 1000
 
 
 road = Road(20, 5000)
@@ -55,14 +55,14 @@ class Worker:
 
 class Position(Worker):
     def __init__(self, name, surname, position, wage, bonus):
-        Position.name = name
-        Position.surname = surname
-        Position.position = position
+        self.name = name
+        self.surname = surname
+        self.position = position
         self._Worker__income['wage'] = wage
         self._Worker__income['bonus'] = bonus
 
     def get_full_name(self):
-        return f'Full Name = {Position.name} {Position.surname}'
+        return f'Full Name = {self.name} {self.surname}'
 
     def get_total_income(self):
         return f'Total income = {reduce(lambda x, y: x + y, (x for x in self._Worker__income.values()))}'
@@ -98,10 +98,10 @@ class Car:
 class TownCar(Car):
 
     def __init__(self, name, color, speed, is_police):
-        TownCar.name = name
-        TownCar.color = color
-        TownCar.speed = speed
-        TownCar.is_police = is_police
+        self.name = name
+        self.color = color
+        self.speed = speed
+        self.is_police = is_police
 
     def show_speed(self):
         if self.speed > 60:
@@ -112,34 +112,34 @@ class TownCar(Car):
 
 class WorkCar(Car):
     def __init__(self, name, color, speed, is_police):
-        WorkCar.name = name
-        WorkCar.color = color
-        WorkCar.speed = speed
-        WorkCar.is_police = is_police
+        self.name = name
+        self.color = color
+        self.speed = speed
+        self.is_police = is_police
 
+    def show_speed(self):
 
-def show_speed(self):
-    if self.speed > 40:
-        print('your speed is over limit 40')
-    else:
-        Car.show_speed(self)
+        if self.speed > 40:
+            print('your speed is over limit 40')
+        else:
+            Car.show_speed(self)
 
 
 class SportCar(Car):
     def __init__(self, name, color, speed, is_police):
-        SportCar.name = name
-        SportCar.color = color
-        SportCar.speed = speed
-        SportCar.is_police = is_police
+        self.name = name
+        self.color = color
+        self.speed = speed
+        self.is_police = is_police
 
 
 class PoliceCar(Car):
 
     def __init__(self, name, color, speed, is_police):
-        PoliceCar.name = name
-        PoliceCar.color = color
-        PoliceCar.speed = speed
-        PoliceCar.is_police = is_police
+        self.name = name
+        self.color = color
+        self.speed = speed
+        self.is_police = is_police
 
 
 work_car = WorkCar('work_lada', 'white', 50, False)
@@ -176,12 +176,25 @@ class Stationery:
 
 
 class Pen(Stationery):
-    pass
+    def draw(self):
+        print("Pen is drawing start...")
 
 
 class Pencil(Stationery):
-    pass
+    def draw(self):
+        print("Pencil is drawing start...")
 
 
 class Handle(Stationery):
-    pass
+    def draw(self):
+        print("Handle is drawing start...")
+
+
+pen = Pen()
+pen.draw()
+
+pencil = Pencil()
+pencil.draw()
+
+handle = Handle()
+handle.draw()
